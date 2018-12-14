@@ -5,16 +5,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Image Processing and Analysis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
 </head>
 <body>
     <header>
-
+            <a href="/" class="active">Start</a>
+            <a href="/om">About</a>
+            <a href="/om">Theory</a>
+            <a href="">Examples</a>
+            <a href="">Matlab</a>
     </header>
     
+    <div id="frontimg">
+    </div>
+
     <div id="container">
-        <h1>Image Processing and Analysis</h1>
+
+        <div id="side">
+
+        </div>
+
+        <div id="content">
+            <h1>Image Processing and Analysis</h1>
+
+
+
+
+            <h3>Morphologic operations</h3>
+
+            <h4>Chain Codes</h4>
+            <p>
+                Chain codes is a way of representing the boundary of an object. The directions is represented according to the following two images 
+                (depending on if we are looking on 4-connectivity or 8-connectivity)
+            </p>
+            
+            <img src="./assets/img/connectivity.png"/>
+
+            <p>
+                Since chain code is dependent of the starting position this makes it harder to compare the chain code but we solve this by normalization. 
+                To normalize, we consider the chain code to be circular and chooses the sequence that gives the smallest integer (rotation of the code).
+            </p>
+
+            <p class ="example">
+                <h5> Example normalization </h5>
+                Chain code: 202100206565444
+                <br/>
+                Normalized chain code: 002065654442921
+            </p>
+
+            <p>
+                To further being able to compare the chain code and see if objects are the same, we want to make the chain code independent of the rotation of the object.
+                To do this, we look at the first difference of the chain code. The first difference is the number of directions that separate two adjacent elements of the code. 
+            </p>
+
+            <p class="example"> 
+                <h5>Example first difference, 8-chain</h5>
+                Given a 8-chain code: 202100206565444. The first difference is calculated by taking two numbers at a time and counting the number of positions required to reach the second number from the first number, 
+                in the counter clockwise direction.
+                <br/>
+                <br/>
+                Take the first 2 numbers, to get to 0 from 2, we take 6 steps (2-3-4-5-6-7-0). Next we have 0 to 2, that is 2 steps (0-1-2). Continuing this process gives us the first difference of the chain code: 
+                <br/>
+                <br/>
+                Chain code: 202100206565444
+                <br/>
+                First difference: 62770266717700
+                <br/>
+                Normalized: 02667177006277
+            </p>
+
+            <p class="example"> 
+                    <h5>Example first difference, 4-chain</h5>
+                    Given a 4-chain code: 03032211. 
+                    <br/>
+                    <br/>
+                    Take the first 2 numbers, to get to 3 from 0, we take 3 steps (0-1-2-3). Next we have 3 to 0, that is 1 step (3-0). Continuing this process gives us the first difference of the chain code: 
+                    <br/>
+                    <br/>
+                    Chain code: 03032211
+                    <br/>
+                    First difference: 3133030
+                    <br/>
+                    Normalized: 0303133
+                </p>
+
+        </div>
     </div>
 
 </body>

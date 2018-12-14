@@ -34,7 +34,7 @@ header .active {
 
 #container{
     margin-top: 10px;
-    width: 100vw; 
+    width: 85vw; 
     margin: auto;
     border-radius: 5px;
     display: flex;
